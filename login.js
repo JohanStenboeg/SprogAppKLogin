@@ -1,3 +1,4 @@
+
 function onClickLogIn(){
     var eMail = "admin";
     var pass = "admin";
@@ -7,11 +8,9 @@ function onClickLogIn(){
         alert("Du er nu logget ind");
         
         
-
-
-    } else{
+ else{
         alert("Ingen bruger med dine oplysninger");
     }
 
 }
-
+}
