@@ -1,33 +1,24 @@
-  const MongoClient = require('mongodb').MongoClient;
+const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
 
 // Connection URL
-const url = 'mongodb://test:test123@ds125953.mlab.com:25953/bingosprogapp';
+var url = "mongodb://localhost:27017/";
 
-// Database Name
-const dbName = 'bingosprogapp';
 
-// Create a new MongoClient
-const client = new MongoClient(url);
-
-// Use connect method to connect to the Server
-client.connect(function(err) {
-  assert.equal(null, err);
-  console.log("Connected successfully to server");
-
-  const db = client.db(dbName);
- 
-  const findDocuments = function(db, callback) {
-    // Get the documents collection
-    const collection = db.collection('brugere');
-    // Find some documents
-    collection.find({}).toArray(function(err, docs) {
-      assert.equal(err, null);
-      console.log("Found the following records");
-      console.log(docs)
-      callback(docs);
-    });
-  }
-  client.close();
-
+MongoClient.connect(url, function(err, db) {
+  if (err) throw err;
+  var dbo = db.db("mydb");
+  var myobj = { name: "Company Inc", address: "Highway 37" };
+  dbo.collection("customers").insertOne(myobj, function(err, res) {
+    if (err) throw err;
+    console.log("1 document inserted");
+    db.close();
+  });
 });
+
+  //const db = client.db(dbName);
+  //db.collection("brugere").find({}).toArray(function(err, result){
+    //if(err) throw err;
+    //console.log(result);
+    //client.close();
+//});
