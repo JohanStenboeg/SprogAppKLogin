@@ -1,12 +1,13 @@
+
 var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb://localhost:27017/";
 
-MongoClient.connect(url,{ useNewUrlParser: true }, function(err, db) {
+MongoClient.connect(url, function(err, db) {
   if (err) throw err;
   var dbo = db.db("mydb");
-  dbo.collection("brugere").find({}, function(err, result) {
+  dbo.collection("customers").drop(function(err, delOK) {
     if (err) throw err;
-    console.log(result.name);
+    if (delOK) console.log("Collection deleted");
     db.close();
   });
 });
