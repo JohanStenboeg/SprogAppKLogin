@@ -7,7 +7,7 @@ var url = "mongodb://localhost:27017/";
 
 MongoClient.connect(url,{ useNewUrlParser: true }, function(err, db) {
   if (err) throw err;
-  var dbo = db.db("mydb");
+  var dbo = db.db("Tododb");
   var myobj = [{ username: 'Test123', password: 'Test123' }];
   dbo.collection("brugere").insertMany(myobj, function(err, res) {
     if (err) throw err;
