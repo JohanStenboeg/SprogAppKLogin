@@ -7,6 +7,8 @@
     <title>Bingo</title>
     <link rel="stylesheet" href="style3.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+    <script src="logintoServer.js"></script>
+
   </head>
 
   <body>
@@ -14,10 +16,11 @@
     <main id="main">
       <section id="section-a">
         <div class="container">
-          <input id = "typedInEmail" type="email" placeholder="Email" name="uname" required>
-          <input id = "typedInPass" type="password" placeholder="Kodeord" name="psw" required>
+          <input id = "brugernavn" type="email" placeholder="Email" name="uname" required>
+          <input id = "password" type="password" placeholder="Kodeord" name="psw" required>
           <div>
-           <button onclick="searchDB()">Log Ind</button>
+           <button onclick="testLogin()">Log Ind</button>
+           <p id="skrivher"> </p>
           </div>
         </div>
         <div class="container2">
@@ -32,9 +35,5 @@
     </main>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="jquery.easypiechart.js"></script>
-    <script src="javascript.js"></script>
-    <script src="login.js"></script>
-    <script src="dbfind.js"></script>
   </body>
 </html>
